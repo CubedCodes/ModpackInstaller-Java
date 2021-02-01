@@ -7,6 +7,7 @@
   <groupId>com.rishabhroy</groupId>
   <artifactId>ModpackInstaller-Java</artifactId>
   <version>0.0.1</version>
+  <packaging>jar</packaging>
 
   <name>ModpackInstaller-Java</name>
   <!-- FIXME change it to the project's website -->
@@ -26,10 +27,14 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
 
-  <build>
+ <build>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
+  
+      	
+		
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-clean-plugin</artifactId>
@@ -73,3 +78,4 @@
     </pluginManagement>
   </build>
 </project>
+
