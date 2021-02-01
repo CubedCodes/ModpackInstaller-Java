@@ -7,11 +7,11 @@ public class Main{
 	public static void main(String[] args) {
 		String os = System.getProperty("os.name");
 		System.out.println(os);
-		if (os == "Mac OS X") {
+		if (os.contains("Mac")) {
 			MacOS();
 		}
 		
-		if (os == "Windows 10") {
+		if (os.contains("Windows")) {
 			Windows();
 		}
 		
