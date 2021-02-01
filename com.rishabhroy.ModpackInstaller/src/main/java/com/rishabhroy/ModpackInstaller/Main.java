@@ -15,7 +15,7 @@ public class Main{
 			Windows();
 		}
 		
-		else {
+		else if ((!(os.contains("Mac"))) && (!(os.contains("Windows")))) {
 			System.out.println("Sorry, your system is not supported");
 		}
 	}
