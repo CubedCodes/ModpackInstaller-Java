@@ -8,7 +8,10 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -37,10 +40,11 @@ public class Main extends Application {
         Button button = new Button("Install");
         pane.getChildren().add(button);
 
-        Text welcomeText = new Text("Welcome to the Modpack installer!");
-        welcomeText.setFont(new Font(30));
-        welcomeText.setX(2000);
-        welcomeText.setY(2000);
+        Text welcomeText = new Text("Welcome to the Modpack Installer!");
+        Font font = Font.font("Montserrat", FontWeight.BOLD, 30);
+        welcomeText.setFont(font);
+        welcomeText.setFill(Color.DARKBLUE);
+
         pane.getChildren().add(welcomeText);
 
         primaryStage.setScene(new Scene(pane));
