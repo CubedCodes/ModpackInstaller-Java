@@ -105,14 +105,14 @@ public class Main extends Application {
             printResults(removeZip);
             System.out.println("Remove Zip Done");
             String dataFolder = System.getenv("APPDATA");
-            String modpackFolder = dataFolder + "\\.modpackInstaller";
-            Process rename = Runtime.getRuntime().exec("cmd.exe /c ren mods .modpackInstaller");
+            String modpackFolder = dataFolder + "\\.minecraftModded2021";
+            Process rename = Runtime.getRuntime().exec("cmd.exe /c ren mods .minecraftModded2021");
             printResults(rename);
             System.out.println("Rename Done");
-            Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .modpackInstaller " + dataFolder);
+            Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .minecraftModded2021 " + dataFolder);
             printResults(moveMods);
             System.out.println("Move Done");
-            Process removeDir = Runtime.getRuntime().exec("rm .modpackInstaller");
+            Process removeDir = Runtime.getRuntime().exec("rm .minecraftModded2021");
             printResults(removeDir);
             System.out.println("Remove Mods Dir Done");
             Process downloadForge = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
@@ -129,7 +129,7 @@ public class Main extends Application {
             Process removeLog = Runtime.getRuntime().exec("rm forge.jar.log");
             printResults(removeLog);
             System.out.println("Remove Forge Log Done");
-            // TODO Edit launcherProfiles.json in the .minecraft folder to include a new profile entry with .modpackInstaller as the game directory and the correct version of forge as the version number.
+            // TODO Edit launcherProfiles.json in the .minecraft folder to include a new profile entry with .minecraftModded2021 as the game directory and the correct version of forge as the version number.
             // TODO Add success function to be called when either os function is complete with no failures
         }
         catch (IOException e) {
