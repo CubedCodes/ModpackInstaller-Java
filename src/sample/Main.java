@@ -77,7 +77,8 @@ public class Main extends Application {
             Process remove = Runtime.getRuntime().exec("rm mods.zip");
             printResults(remove);
             Process user = Runtime.getRuntime().exec("id -un");
-            printResults(user);
+            String id = returnResults(user);
+            System.out.println(id);
 
         }
         catch (IOException e) {
@@ -138,6 +139,12 @@ public class Main extends Application {
     }
 
     public static String returnResults(Process process) throws IOException {
-        
+        BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
+        String line = "";
+        String out = "";
+        while ((line = reader.readLine()) != null) {
+            out = out + line;
+        }
+        return out;
     }
 }
