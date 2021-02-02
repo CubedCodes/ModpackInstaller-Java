@@ -4,11 +4,9 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -24,24 +22,21 @@ public class Main extends Application {
 
         String os = System.getProperty("os.name");
         System.out.println(os);
-        BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",800,400,false,true),
-                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
-                BackgroundSize.DEFAULT);
 
 
         primaryStage.setTitle("Modpack Installer");
         VBox pane = new VBox();
-        pane.setPrefSize(800,400);
-        pane.setBackground(new Background(myBI));
+        pane.setPrefSize(500,200);
+        pane.setSpacing(10);
 
         Button button = new Button("Install");
         pane.getChildren().add(button);
 
-        Text welcomeText = new Text("Welcome to the Modpack installer!");
-        welcomeText.setFont(new Font(30));
-        welcomeText.setX(2000);
-        welcomeText.setY(2000);
+        Text welcomeText = new Text("Welcome to the modpack installer!");
         pane.getChildren().add(welcomeText);
+
+        VBox.setMargin(button, new Insets(20, 20, 20, 20));
+        VBox.setMargin(welcomeText, new Insets(20, 20, 20, 20));
 
         primaryStage.setScene(new Scene(pane));
         primaryStage.setResizable(false);
@@ -63,6 +58,7 @@ public class Main extends Application {
 
         if (os.contains("Windows")) {
             Windows();
+            rickroll(os);
         }
 
         if ((!(os.contains("Windows"))) && (!(os.contains("Mac")))) {
@@ -214,14 +210,11 @@ public class Main extends Application {
                 path = path + "/rickroll.mp3";
             }
             if (os.contains("Windows")) {
-                Process rickrolldirwin = Runtime.getRuntime().exec("cd");
-                path = returnResults(rickrolldirwin);
-
-                // TODO For Blake! Add Backslash in front of "rickroll.mp3" but make it work somehow, because if you read the code there should be a backslash there.
-                path = path + "rickroll.mp3";
+                path = "rickroll.mp3";
             }
             Media media = new Media(new File(path).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setVolume(0.1);
             mediaPlayer.setAutoPlay(true);
         }
         catch (IOException e) {
