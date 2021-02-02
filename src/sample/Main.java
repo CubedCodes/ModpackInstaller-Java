@@ -104,9 +104,11 @@ public class Main extends Application {
             Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .modpackInstaller " + dataFolder);
             printResults(moveMods);
             System.out.println("Move Done");
-            //Process downloadForge = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
-            Process downloadForge = Runtime.getRuntime().exec("powershell -command \"Invoke-WebRequest -Uri \"https://modpackinstaller.page.link/forge\" -OutFile \"forge.jar\"");
-
+            Process removeDir = Runtime.getRuntime().exec("rm .modpackInstaller");
+            printResults(removeDir);
+            System.out.println("Remove Mods Dir Done");
+            Process downloadForge = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
+            //Process downloadForge = Runtime.getRuntime().exec("powershell -command \"Invoke-WebRequest -Uri \"https://modpackinstaller.page.link/forge\" -OutFile \"forge.jar\"");
             printResults(downloadForge);
             System.out.println("Download Forge Done");
             Process runForge = Runtime.getRuntime().exec("cmd /c java -jar forge.jar");
