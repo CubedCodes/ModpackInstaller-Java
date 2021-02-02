@@ -88,7 +88,7 @@ public class Main extends Application {
             mv.command("mv", "mods", ("/Users/" + id + "/Library/Application Support/minecraft/minecraftModded2021"));
             Process mvp = mv.start();
             printResults(mvp);
-            
+
 
 
         }
