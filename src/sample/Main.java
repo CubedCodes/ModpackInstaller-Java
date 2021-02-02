@@ -12,6 +12,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+
+
+
         primaryStage.setTitle("Hello World");
         VBox pane = new VBox();
         pane.setPrefSize(500,200);
@@ -32,6 +36,9 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+
         launch(args);
     }
+
+
 }
