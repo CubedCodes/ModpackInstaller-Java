@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" build-on-make="true" name="ModpackInstaller">
+    <output-path>$PROJECT_DIR$/out/artifacts/ModpackInstaller</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="sample.Main" />
+        <option name="description" value="Modpack Installer" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="nativeBundle" value="all" />
+        <option name="title" value="Modpack Installer" />
+        <option name="vendor" value="Blake Haug" />
+        <option name="version" value="1.0" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="ModpackInstaller.jar">
+        <element id="module-output" name="ModpackInstaller" />
+      </element>
+    </root>
+  </artifact>
+</component>

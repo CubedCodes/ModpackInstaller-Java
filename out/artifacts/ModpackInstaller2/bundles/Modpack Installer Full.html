@@ -1,0 +1,43 @@
+<html><head>
+  <SCRIPT src="http://java.com/js/dtjava.js"></SCRIPT>
+<script>
+    function launchApplication(jnlpfile) {
+        dtjava.launch(            {
+                url : 'Modpack Installer Full.jnlp'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+        return false;
+    }
+</script>
+
+<script>
+    function javafxEmbedModpack Installer Full_id() {
+        dtjava.embed(
+            {
+                id : 'Modpack Installer Full_id',
+                url : 'Modpack Installer Full.jnlp',
+                placeholder : 'javafx-app-placeholder',
+                width : '600',
+                height : '400'
+            },
+            {
+                javafx : '8.0+'
+            },
+            {}
+        );
+    }
+    <!-- Embed FX application into web page once page is loaded -->
+    dtjava.addOnloadCallback(javafxEmbedModpack Installer Full_id);
+</script>
+
+</head><body>
+<h2>Test page for <b>ModpackInstaller2</b></h2>
+  <b>Webstart:</b> <a href='Modpack Installer Full.jnlp' onclick="return launchApplication('Modpack Installer Full.jnlp');">click to launch this app as webstart</a><br><hr><br>
+
+  <!-- Applet will be inserted here -->
+  <div id='javafx-app-placeholder'></div>
+</body></html>

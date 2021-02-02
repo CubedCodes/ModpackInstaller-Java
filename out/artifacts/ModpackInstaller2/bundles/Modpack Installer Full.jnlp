@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Modpack Installer Full.jnlp">
+  <information>
+    <title>ModpackInstaller2</title>
+    <vendor>Unknown</vendor>
+    <description>ModpackInstaller2</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Modpack Installer Full.jar" size="426" download="eager" />
+    <jar href="ModpackInstaller.jar" size="2335" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="600" height="400" main-class="sample.Main"  name="ModpackInstaller2" />
+  <update check="background"/>
+</jnlp>
