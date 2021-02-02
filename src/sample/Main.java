@@ -115,6 +115,7 @@ public class Main extends Application {
             //Process downloadForge = Runtime.getRuntime().exec("powershell -command \"Invoke-WebRequest -Uri \"https://modpackinstaller.page.link/forge\" -OutFile \"forge.jar\"");
             printResults(downloadForge);
             System.out.println("Download Forge Done");
+            // TODO Add popup here to tell the user to click install on the forge prompt. Continue with the code on them clicking ok.
             Process runForge = Runtime.getRuntime().exec("cmd /c java -jar forge.jar");
             printResults(runForge);
             System.out.println("Run Forge Done");
@@ -124,6 +125,8 @@ public class Main extends Application {
             Process removeLog = Runtime.getRuntime().exec("rm forge.jar.log");
             printResults(removeLog);
             System.out.println("Remove Forge Log Done");
+            // TODO Edit launcherProfiles.json in the .minecraft folder to include a new profile entry with .modpackInstaller as the game directory and the correct version of forge as the version number.
+            // TODO Add success function to be called when either os function is complete with no failures
         }
         catch (IOException e) {
             e.printStackTrace();
