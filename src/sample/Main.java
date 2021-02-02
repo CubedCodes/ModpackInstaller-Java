@@ -215,15 +215,7 @@ public class Main extends Application {
                 path = path + "/rickroll.mp3";
             }
             if (os.contains("Windows")) {
-<<<<<<< HEAD
-                Process rickrolldirwin = Runtime.getRuntime().exec("cd");
-                path = returnResults(rickrolldirwin);
-
-                // TODO For Blake! Add Backslash in front of "rickroll.mp3" but make it work somehow, because if you read the code there should be a backslash there.
-                path = path + "rickroll.mp3";
-=======
                 path = "rickroll.mp3";
->>>>>>> origin/main
             }
             Media media = new Media(new File(path).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(media);
@@ -233,7 +225,5 @@ public class Main extends Application {
         catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }
