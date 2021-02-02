@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -50,6 +52,7 @@ public class Main extends Application {
     public static boolean install(String os) {
         if (os.contains("Mac")) {
           MacOS();
+          rickroll(os);
 
         }
 
@@ -193,5 +196,31 @@ public class Main extends Application {
             out = out + line;
         }
         return out;
+    }
+
+    public static void rickroll(String os) {
+        try {
+            Process rickroll = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/rickroll -o rickroll.mp3");
+            printResults(rickroll);
+            String path = "";
+            if (os.contains("Mac")) {
+                Process rickrolldir = Runtime.getRuntime().exec("pwd");
+                path = returnResults(rickrolldir);
+                path = path + "/rickroll.mp3";
+            }
+            if (os.contains("Windows")) {
+                Process rickrolldirwin = Runtime.getRuntime().exec("cd");
+                path = returnResults(rickrolldirwin);
+                path = path + "rickroll.mp3";
+            }
+            Media media = new Media(new File(path).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setAutoPlay(true);
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
