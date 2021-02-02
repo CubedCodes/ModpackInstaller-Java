@@ -64,15 +64,23 @@ public class Main extends Application {
     }
 
 
+
     public static void MacOS() {
         System.out.println("Initializing MacOS Installation of Modpack");
         try {
             Process pwd = Runtime.getRuntime().exec("pwd");
             printResults(pwd);
+            Process curl = Runtime.getRuntime().exec("curl https://modpackinstaller.page.link/mods -O -L -J");
+            printResults(curl);
+            Process unzip = Runtime.getRuntime().exec("unzip mods.zip");
+            printResults(unzip);
+            Process remove = Runtime.getRuntime().exec("rm mods.zip");
+            printResults(remove);
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+
 
     }
 
