@@ -107,7 +107,7 @@ public class Main extends Application {
             Process forgelog = Runtime.getRuntime().exec("rm forge.jar.log");
             printResults(forgelog);
 
-            
+
 
         }
         catch (IOException e) {
