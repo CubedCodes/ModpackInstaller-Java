@@ -13,10 +13,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
+        String os = System.getProperty("os.name");
+        System.out.println(os);
 
 
-
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Modpack Installer");
         VBox pane = new VBox();
         pane.setPrefSize(500,200);
         pane.setSpacing(10);
@@ -40,5 +41,24 @@ public class Main extends Application {
         launch(args);
     }
 
+    public static void install(String os) {
+        if (os.contains("Mac")) {
+            MacOS();
+        }
+
+        if (os.contains("Windows")) {
+
+        }
+
+    }
+
+
+    public static void MacOS() {
+
+    }
+
+    public static void Windows() {
+
+    }
 
 }
