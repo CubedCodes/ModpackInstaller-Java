@@ -85,7 +85,43 @@ public class Main extends Application {
     }
 
     public static void Windows() {
+        System.out.println("Initializing Windows Installation of Modpack");
+        try {
+            Process download = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/mods -o mods.zip");
+            printResults(download);
+            System.out.println("Download Mods Done");
+            Process unzip = Runtime.getRuntime().exec("powershell -command \"Expand-Archive -Force mods.zip\"");
+            printResults(unzip);
+            System.out.println("Unzip Done");
+            Process removeZip = Runtime.getRuntime().exec("rm mods.zip");
+            printResults(removeZip);
+            System.out.println("Remove Zip Done");
+            String dataFolder = System.getenv("APPDATA");
+            String modpackFolder = dataFolder + "\\.modpackInstaller";
+            Process rename = Runtime.getRuntime().exec("cmd.exe /c ren mods .modpackInstaller");
+            printResults(rename);
+            System.out.println("Rename Done");
+            Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .modpackInstaller " + dataFolder);
+            printResults(moveMods);
+            System.out.println("Move Done");
+            //Process downloadForge = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
+            Process downloadForge = Runtime.getRuntime().exec("powershell -command \"Invoke-WebRequest -Uri \"https://modpackinstaller.page.link/forge\" -OutFile \"forge.jar\"");
 
+            printResults(downloadForge);
+            System.out.println("Download Forge Done");
+            Process runForge = Runtime.getRuntime().exec("cmd /c java -jar forge.jar");
+            printResults(runForge);
+            System.out.println("Run Forge Done");
+            Process removeJar = Runtime.getRuntime().exec("rm forge.jar");
+            printResults(removeJar);
+            System.out.println("Remove Forge Jar Done");
+            Process removeLog = Runtime.getRuntime().exec("rm forge.jar.log");
+            printResults(removeLog);
+            System.out.println("Remove Forge Log Done");
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public static void printResults(Process process) throws IOException {
@@ -95,6 +131,4 @@ public class Main extends Application {
             System.out.println(line);
         }
     }
-
-
 }
