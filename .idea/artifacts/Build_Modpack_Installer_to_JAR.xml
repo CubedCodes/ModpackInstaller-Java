@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="javafx" name="ModpackInstaller2">
-    <output-path>$PROJECT_DIR$/out/artifacts/ModpackInstaller2</output-path>
+  <artifact type="javafx" name="Build Modpack Installer to JAR">
+    <output-path>$PROJECT_DIR$/out/artifacts/Build_Modpack_Installer_to_JAR</output-path>
     <properties id="javafx-properties">
       <options>
         <option name="appClass" value="sample.Main" />
