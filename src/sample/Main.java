@@ -104,6 +104,11 @@ public class Main extends Application {
             Process forgeremove = Runtime.getRuntime().exec("rm forge.jar");
             printResults(forgeremove);
 
+            Process forgelog = Runtime.getRuntime().exec("rm forge.jar.log");
+            printResults(forgelog);
+
+            
+
         }
         catch (IOException e) {
             e.printStackTrace();
