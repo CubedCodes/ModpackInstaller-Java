@@ -9,6 +9,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
@@ -79,7 +80,10 @@ public class Main extends Application {
             Process user = Runtime.getRuntime().exec("id -un");
             String id = returnResults(user);
             System.out.println(id);
-
+            ProcessBuilder processBuilder = new ProcessBuilder();
+            processBuilder.command("pwd").directory(new File(("/Users/" + id + "/Library/Application Support/minecraft/")));
+            Process mkdir = processBuilder.start();
+            printResults(mkdir);
         }
         catch (IOException e) {
             e.printStackTrace();
