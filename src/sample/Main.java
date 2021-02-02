@@ -76,6 +76,9 @@ public class Main extends Application {
             printResults(unzip);
             Process remove = Runtime.getRuntime().exec("rm mods.zip");
             printResults(remove);
+            Process user = Runtime.getRuntime().exec("id -un");
+            printResults(user);
+
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -132,5 +135,9 @@ public class Main extends Application {
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }
+    }
+
+    public static String returnResults(Process process) throws IOException {
+        
     }
 }
