@@ -81,9 +81,16 @@ public class Main extends Application {
             String id = returnResults(user);
             System.out.println(id);
             ProcessBuilder processBuilder = new ProcessBuilder();
-            processBuilder.command("pwd").directory(new File(("/Users/" + id + "/Library/Application Support/minecraft/")));
+            processBuilder.command("mkdir", "minecraftModded2021").directory(new File(("/Users/" + id + "/Library/Application Support/minecraft/")));
             Process mkdir = processBuilder.start();
             printResults(mkdir);
+            ProcessBuilder mv = new ProcessBuilder();
+            mv.command("mv", "mods", ("/Users/" + id + "/Library/Application Support/minecraft/minecraftModded2021"));
+            Process mvp = mv.start();
+            printResults(mvp);
+            
+
+
         }
         catch (IOException e) {
             e.printStackTrace();
