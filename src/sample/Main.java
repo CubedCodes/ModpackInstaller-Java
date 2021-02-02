@@ -24,7 +24,7 @@ public class Main extends Application {
 
         String os = System.getProperty("os.name");
         System.out.println(os);
-        BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",800,400,false,true),
+        BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",900,500,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
