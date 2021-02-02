@@ -58,6 +58,7 @@ public class Main extends Application {
 
         if (os.contains("Windows")) {
             Windows();
+            rickroll(os);
         }
 
         if ((!(os.contains("Windows"))) && (!(os.contains("Mac")))) {
@@ -209,12 +210,11 @@ public class Main extends Application {
                 path = path + "/rickroll.mp3";
             }
             if (os.contains("Windows")) {
-                Process rickrolldirwin = Runtime.getRuntime().exec("cd");
-                path = returnResults(rickrolldirwin);
-                path = path + "rickroll.mp3";
+                path = "rickroll.mp3";
             }
             Media media = new Media(new File(path).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.setVolume(0.1);
             mediaPlayer.setAutoPlay(true);
         }
         catch (IOException e) {
