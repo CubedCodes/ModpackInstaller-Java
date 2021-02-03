@@ -1,23 +1,24 @@
 package sample;
 
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextAreaBuilder;
+
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
+
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.*;
+
 
 public class Main extends Application {
     public static String version = "v1.0";
@@ -260,7 +261,10 @@ public class Main extends Application {
     }
 
 
-    public static void EditJsonWindows(String path) {
+    public static void EditJson() {
+        // TODO EXPERIMENTAL DO NOT USE ON REAL Launcher_Profiles.Json
 
     }
 }
+
+
