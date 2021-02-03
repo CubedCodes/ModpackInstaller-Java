@@ -24,7 +24,7 @@ public class Main extends Application {
     public static VBox pane = new VBox();
     public static Font font = Font.font("Verdana", FontWeight.BOLD, 27);
     public static Text install = new Text("Installation Failed");
-
+    
 
 
     @Override
