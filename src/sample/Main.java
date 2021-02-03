@@ -21,6 +21,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main extends Application {
+    public static String version = "v1.0";
+    public static VBox pane = new VBox();
+    public static Font font = Font.font("Verdana", FontWeight.BOLD, 27);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -33,25 +36,36 @@ public class Main extends Application {
 
 
         primaryStage.setTitle("Modpack Installer");
-        VBox pane = new VBox();
         pane.setPrefSize(800,400);
         pane.setBackground(new Background(myBI));
 
         Button button = new Button("Install");
-        pane.getChildren().add(button);
+        button.setStyle("-fx-background-color: #1fc127");
+        button.setTextFill(Color.WHITE);
+        button.setMaxSize(300, 300);
+
 
         Text welcomeText = new Text("Welcome to the Modpack Installer!");
-        Font font = Font.font("Montserrat", FontWeight.BOLD, 30);
+        button.setFont(font);
         welcomeText.setFont(font);
-        welcomeText.setFill(Color.DARKBLUE);
+        welcomeText.setFill(Color.LIGHTGREEN);
 
         pane.getChildren().add(welcomeText);
+        pane.getChildren().add(button);
 
+
+        pane.setMargin(button, new Insets(30, 10, 10, 250));
+        pane.setMargin(welcomeText, new Insets(20, 10, 10, 140));
         primaryStage.setScene(new Scene(pane));
         primaryStage.setResizable(false);
         primaryStage.show();
 
-        button.setOnAction(e -> install(os));
+        button.setOnAction(e -> {
+            button.setDisable(true);
+            StartText();
+
+            install(os);
+        });
     }
 
     public static void main(String[] args) {
@@ -59,10 +73,10 @@ public class Main extends Application {
     }
 
     public static boolean install(String os) {
-        if (os.contains("Mac")) {
-          MacOS();
-          rickroll(os);
 
+        if (os.contains("Mac")) {
+            MacOS();
+            rickroll(os);
         }
 
         if (os.contains("Windows")) {
@@ -231,5 +245,13 @@ public class Main extends Application {
         }
 
 
+    }
+
+    public static void StartText() {
+        Text install = new Text("Modpack Installed!");
+        install.setFont(font);
+        install.setFill(Color.LIGHTGREEN);
+        pane.setMargin(install, new Insets(60, 10, 10, 250));
+        pane.getChildren().add(install);
     }
 }
