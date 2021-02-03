@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextAreaBuilder;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -15,15 +17,15 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main extends Application {
     public static String version = "v1.0";
     public static VBox pane = new VBox();
     public static Font font = Font.font("Verdana", FontWeight.BOLD, 27);
+    public static Text install = new Text("Installation Failed");
+
+
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -49,6 +51,7 @@ public class Main extends Application {
         button.setFont(font);
         welcomeText.setFont(font);
         welcomeText.setFill(Color.LIGHTGREEN);
+
 
         pane.getChildren().add(welcomeText);
         pane.getChildren().add(button);
@@ -135,7 +138,7 @@ public class Main extends Application {
             printResults(forgelog);
 
 
-
+            install.setText("Modpack Installed!");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -196,6 +199,8 @@ public class Main extends Application {
 
             // TODO Edit launcherProfiles.json in the .minecraft folder to include a new profile entry with .minecraftModded2021 as the game directory and the correct version of forge as the version number.
             // TODO Add success function to be called when either os function is complete with no failures
+
+            install.setText("Modpack Installed!");
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -248,7 +253,6 @@ public class Main extends Application {
     }
 
     public static void StartText() {
-        Text install = new Text("Modpack Installed!");
         install.setFont(font);
         install.setFill(Color.LIGHTGREEN);
         pane.setMargin(install, new Insets(60, 10, 10, 250));
