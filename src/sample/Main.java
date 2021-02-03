@@ -258,4 +258,9 @@ public class Main extends Application {
         pane.setMargin(install, new Insets(60, 10, 10, 250));
         pane.getChildren().add(install);
     }
+
+
+    public static void EditJsonWindows(String path) {
+
+    }
 }
