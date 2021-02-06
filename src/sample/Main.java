@@ -180,9 +180,13 @@ public class Main extends Application {
             printResults(rename);
             System.out.println("Rename Done");
 
-            Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .minecraftModded2021 " + "\"" + dataFolder + "\"");
+            Process moveMods = Runtime.getRuntime().exec("cmd.exe /c move .minecraftModded2021" + dataFolder);
             printResults(moveMods);
             System.out.println("Move Done");
+
+            Process removeDir = Runtime.getRuntime().exec("rm .minecraftModded2021");
+            printResults(removeDir);
+            System.out.println("Remove Mods Dir Done");
 
             Process downloadForge = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
             //Process downloadForge = Runtime.getRuntime().exec("powershell -command \"Invoke-WebRequest -Uri \"https://modpackinstaller.page.link/forge\" -OutFile \"forge.jar\"");
