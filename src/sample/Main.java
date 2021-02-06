@@ -113,13 +113,9 @@ public class Main extends Application {
             printResults(curl);
             System.out.println("downloaded zip archive");
 
-            Process unzip = Runtime.getRuntime().exec("unzip mods.zip");
-            printResults(unzip);
-            System.out.println("Unzipped Mods.zip");
-
-            Process rename = Runtime.getRuntime().exec("mv mods minecraftModded2021");
-            printResults(rename);
-            System.out.println("Renamed mods.zip");
+            Process mkmodsdir = Runtime.getRuntime().exec("mkdir minecraftModded2021");
+            printResults(mkmodsdir);
+            System.out.println("made game directory");
 
             String minecraftPath = "/Users/" + id + "/Library/Application Support/minecraft/";
             ProcessBuilder mv = new ProcessBuilder();
@@ -127,6 +123,14 @@ public class Main extends Application {
             Process mvp = mv.start();
             printResults(mvp);
             System.out.println("moved game directory");
+
+            Process unzipMods = Runtime.getRuntime().exec(("unzip " + currentDir + "/mods.zip"), null, new File((minecraftPath + "minecraftModded2021")));
+            printResults(unzipMods);
+            System.out.println("unzipped mods.zip");
+
+            Process removemodszip = Runtime.getRuntime().exec("rm mods.zip");
+            printResults(removemodszip);
+            System.out.println("removed mods.zip");
 
             Process forgecurl = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/forge -o forge.jar");
             printResults(forgecurl);
