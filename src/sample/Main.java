@@ -188,7 +188,7 @@ public class Main extends Application {
             printResults(moveMods);
             System.out.println("Move Done");
 
-            Process removeDir = Runtime.getRuntime().exec("cmd /c rm .minecraftModded2021");
+            Process removeDir = Runtime.getRuntime().exec("powershell -command \"rm .minecraftModded2021\"");
             printResults(removeDir);
             System.out.println("Remove Mods Dir Done");
 
