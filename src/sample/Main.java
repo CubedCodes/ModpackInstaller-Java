@@ -173,7 +173,7 @@ public class Main extends Application {
             printResults(unzip);
             System.out.println("Unzip Done");
 
-            Process removeZip = Runtime.getRuntime().exec("rm mods.zip");
+            Process removeZip = Runtime.getRuntime().exec("powershell -command \"rm mods.zip\"");
             printResults(removeZip);
             System.out.println("Remove Zip Done");
 
