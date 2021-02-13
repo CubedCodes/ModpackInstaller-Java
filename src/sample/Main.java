@@ -180,7 +180,7 @@ public class Main extends Application {
             String dataFolder = System.getenv("APPDATA");
             String modpackFolder = dataFolder + "\\.minecraftModded2021";
             String minecraftDir = dataFolder + "\\.minecraft";
-            Process rename = Runtime.getRuntime().exec("rename mods .minecraftModded2021");
+            Process rename = Runtime.getRuntime().exec("cmd /c rename mods .minecraftModded2021");
             printResults(rename);
             System.out.println("Rename Done");
 
@@ -188,7 +188,7 @@ public class Main extends Application {
             printResults(moveMods);
             System.out.println("Move Done");
 
-            Process removeDir = Runtime.getRuntime().exec("rm .minecraftModded2021");
+            Process removeDir = Runtime.getRuntime().exec("cmd /c rm .minecraftModded2021");
             printResults(removeDir);
             System.out.println("Remove Mods Dir Done");
 
