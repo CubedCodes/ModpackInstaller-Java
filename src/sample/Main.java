@@ -42,11 +42,10 @@ public class Main extends Application {
         primaryStage.setTitle("Modpack Installer");
         pane.setPrefSize(800,400);
         pane.setBackground(new Background(myBI));
-
         Button button = new Button("Install");
-        button.setTextFill(Color.LIGHTGREEN);
+        button.setStyle("-fx-background-color: #1fc127");
+        button.setTextFill(Color.WHITE);
         button.setMaxSize(300, 300);
-
 
         Text welcomeText = new Text("Welcome to the Modpack Installer!");
         button.setFont(font);
