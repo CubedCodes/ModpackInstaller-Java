@@ -197,14 +197,6 @@ public class Main extends Application {
             printResults(runForge);
             System.out.println("Run Forge Done");
 
-            Process removeJar = Runtime.getRuntime().exec("rm forge.jar");
-            printResults(removeJar);
-            System.out.println("Remove Forge Jar Done");
-
-            Process removeLog = Runtime.getRuntime().exec("rm forge.jar.log");
-            printResults(removeLog);
-            System.out.println("Remove Forge Log Done");
-
             EditJsonWindows(minecraftDir, modpackFolder);
             System.out.println("profile injected into minecraft launcher");
 
