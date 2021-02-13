@@ -44,8 +44,7 @@ public class Main extends Application {
         pane.setBackground(new Background(myBI));
 
         Button button = new Button("Install");
-        button.setStyle("-fx-background-color: #1fc127");
-        button.setTextFill(Color.WHITE);
+        button.setTextFill(Color.LIGHTGREEN);
         button.setMaxSize(300, 300);
 
 
