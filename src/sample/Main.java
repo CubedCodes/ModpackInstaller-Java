@@ -363,7 +363,20 @@ public class Main extends Application {
     }
 
     public static void UninstallMac() {
+        try {
 
+            Process user1 = Runtime.getRuntime().exec("id -un");
+            String id1 = returnResults(user1);
+
+            String minecraftPath1 = "/Users/" + id1 + "/Library/Application Support/minecraft/minecraftModded2021";
+
+            Process removeFolder1 = Runtime.getRuntime().exec("rm " + minecraftPath1);
+            printResults(removeFolder1);
+
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     public static void UninstallWindows() {
