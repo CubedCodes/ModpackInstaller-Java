@@ -76,3 +76,5 @@ src/META-INF/MANIFEST.MF
 .idea/modules.xml
 .idea/vcs.xml
 .idea/artifacts/ModpackInstaller_Java_jar.xml
+
+.idea/
