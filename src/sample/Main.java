@@ -369,10 +369,13 @@ public class Main extends Application {
             String id1 = returnResults(user1);
 
             String minecraftPath1 = "/Users/" + id1 + "/Library/Application Support/minecraft/minecraftModded2021";
+            System.out.println(minecraftPath1);
+            File minecraftPath2 = new File(minecraftPath1);
 
-            Process removeFolder1 = Runtime.getRuntime().exec("rm " + minecraftPath1);
-            printResults(removeFolder1);
+            deleteFolder(minecraftPath2);
+            System.out.println("Uninstall Done!");
 
+            uninstallText.setText("Uninstalled Successfully");
         }
         catch (IOException e){
             e.printStackTrace();
@@ -380,22 +383,26 @@ public class Main extends Application {
     }
 
     public static void UninstallWindows() {
-        try {
-            String dataFolder1 = System.getenv("APPDATA");
-            String modpackFolder1 = dataFolder1 + "\\.minecraftModded2021";
+        String dataFolder1 = System.getenv("APPDATA");
+        String modpackFolder1 = dataFolder1 + "\\.minecraftModded2021";
+        File minecraftPath3 = new File(modpackFolder1);
 
-            Process removeZip1 = Runtime.getRuntime().exec("powershell -command \"Remove-Item " + modpackFolder1 + "\"");
-            printResults(removeZip1);
-            System.out.println("Uninstall Done!");
+        deleteFolder(minecraftPath3);
 
-            uninstallText.setText("Uninstalled Successfully");
+        System.out.println("Uninstall Done!");
+
+        uninstallText.setText("Uninstalled Successfully");
+    }
+
+    static void deleteFolder(File file){
+        for (File subFile : file.listFiles()) {
+            if(subFile.isDirectory()) {
+                deleteFolder(subFile);
+            } else {
+                subFile.delete();
+            }
         }
-
-        catch (IOException e) {
-
-            e.printStackTrace();
-
-        }
+        file.delete();
     }
 }
 
