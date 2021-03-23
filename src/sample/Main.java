@@ -26,6 +26,7 @@ public class Main extends Application {
     public static VBox pane = new VBox();
     public static Font font = Font.font("Verdana", FontWeight.BOLD, 27);
     public static Text install = new Text("Installation Failed");
+    public static Text uninstallText = new Text("Uninstallation Failed");
 
 
 
@@ -34,7 +35,7 @@ public class Main extends Application {
 
         String os = System.getProperty("os.name");
         System.out.println(os);
-        BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",900,500,false,true),
+        BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",1700,1300    ,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
 
@@ -47,18 +48,26 @@ public class Main extends Application {
         button.setTextFill(Color.WHITE);
         button.setMaxSize(300, 300);
 
+        Button uninstall = new Button("Uninstall");
+        uninstall.setStyle("-fx-background-color: #1fc127");
+        uninstall.setTextFill(Color.WHITE);
+        uninstall.setMaxSize(300,300);
+
         Text welcomeText = new Text("Welcome to the Modpack Installer!");
         button.setFont(font);
         welcomeText.setFont(font);
         welcomeText.setFill(Color.LIGHTGREEN);
+        uninstall.setFont(font);
 
 
         pane.getChildren().add(welcomeText);
         pane.getChildren().add(button);
+        pane.getChildren().add(uninstall);
 
 
         pane.setMargin(button, new Insets(30, 10, 10, 250));
         pane.setMargin(welcomeText, new Insets(20, 10, 10, 140));
+        pane.setMargin(uninstall, new Insets(30,10,10,250));
         primaryStage.setScene(new Scene(pane));
         primaryStage.setResizable(false);
         primaryStage.show();
@@ -68,6 +77,20 @@ public class Main extends Application {
             StartText();
 
             install(os);
+        });
+
+        uninstall.setOnAction(b -> {
+            uninstall.setDisable(true);
+            UninstallTextFunc();
+
+            if (os.contains("Mac")) {
+                UninstallMac();
+            }
+
+            if (os.contains("Windows")) {
+                UninstallWindows();
+            }
+
         });
     }
 
@@ -225,6 +248,8 @@ public class Main extends Application {
         return out;
     }
 
+
+
     public static void rickroll(String os) {
         try {
             Process rickroll = Runtime.getRuntime().exec("curl -L https://modpackinstaller.page.link/rickroll -o rickroll.mp3");
@@ -255,6 +280,13 @@ public class Main extends Application {
         install.setFill(Color.LIGHTGREEN);
         pane.setMargin(install, new Insets(60, 10, 10, 250));
         pane.getChildren().add(install);
+    }
+
+    public static void UninstallTextFunc() {
+        uninstallText.setFont(font);
+        uninstallText.setFill(Color.LIGHTGREEN);
+        pane.setMargin(uninstallText, new Insets(60, 10, 10, 250));
+        pane.getChildren().add(uninstallText);
     }
 
 
@@ -327,6 +359,29 @@ public class Main extends Application {
                     "    temp[\"modded2021\"] = y\n" +
                     "      \n" +
                     "write_json(data)  ')");
+        }
+    }
+
+    public static void UninstallMac() {
+
+    }
+
+    public static void UninstallWindows() {
+        try {
+            String dataFolder1 = System.getenv("APPDATA");
+            String modpackFolder1 = dataFolder1 + "\\.minecraftModded2021";
+
+            Process removeZip1 = Runtime.getRuntime().exec("powershell -command \"Remove-Item " + modpackFolder1 + "\"");
+            printResults(removeZip1);
+            System.out.println("Uninstall Done!");
+
+            uninstallText.setText("Uninstalled Successfully");
+        }
+
+        catch (IOException e) {
+
+            e.printStackTrace();
+
         }
     }
 }
