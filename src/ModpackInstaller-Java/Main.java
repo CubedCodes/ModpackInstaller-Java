@@ -1,4 +1,4 @@
-package ModpackInstaller;
+package ModpackInstaller-Java;
 
 
 import javafx.application.Application;
