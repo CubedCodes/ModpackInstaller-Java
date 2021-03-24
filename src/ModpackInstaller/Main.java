@@ -42,7 +42,7 @@ public class Main extends Application {
         BackgroundImage myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",900,500,false,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
-        
+
         if (os.contains("Mac")) {
             myBI= new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png",1700,1300,false,true),
                     BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
