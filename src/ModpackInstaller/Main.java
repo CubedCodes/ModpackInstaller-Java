@@ -34,6 +34,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        // Set icon
+        primaryStage.getIcons().add(new Image("file:icon.png"));
+
         // Get Operating System
         String os = System.getProperty("os.name");
         System.out.println(os);
