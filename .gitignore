@@ -82,3 +82,5 @@ src/META-INF/MANIFEST.MF
 .minecraftModded2021/**
 mods/**
 rickroll.mp3
+forge.jar
+forge.jar.log
