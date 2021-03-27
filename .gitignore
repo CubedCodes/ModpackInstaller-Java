@@ -78,3 +78,7 @@ src/META-INF/MANIFEST.MF
 .idea/artifacts/ModpackInstaller_Java_jar.xml
 
 .idea/
+
+.minecraftModded2021/**
+mods/**
+rickroll.mp3
