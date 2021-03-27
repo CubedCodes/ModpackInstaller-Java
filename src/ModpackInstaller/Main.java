@@ -1,9 +1,7 @@
 package ModpackInstaller;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
@@ -21,7 +19,6 @@ import javafx.stage.Stage;
 import org.python.util.PythonInterpreter;
 
 import java.awt.*;
-import java.awt.event.PaintEvent;
 import java.io.*;
 import java.util.concurrent.TimeUnit;
 
