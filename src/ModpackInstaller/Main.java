@@ -232,6 +232,7 @@ public class Main extends Application {
             String dataFolder = System.getenv("APPDATA");
             String modpackFolder = dataFolder + "\\.minecraftModded2021";
             String minecraftDir = dataFolder + "\\.minecraft";
+            String jsonPath = minecraftDir + "\\launcher_profiles.json";
             Process rename = Runtime.getRuntime().exec("cmd /c rename mods .minecraftModded2021");
             printResults(rename);
             System.out.println("Rename Done");
@@ -252,7 +253,8 @@ public class Main extends Application {
             System.out.println("Run Forge Done");
 
             // Add profile to the Minecraft launcher
-            EditJsonWindows(minecraftDir, modpackFolder);
+            System.out.println(jsonPath);
+            EditJsonWindows(jsonPath, modpackFolder);
             System.out.println("profile injected into minecraft launcher");
 
             install.setText("Modpack Installed!");
@@ -371,12 +373,12 @@ public class Main extends Application {
                     "  \n" +
                     "  \n" +
                     "# function to add to JSON \n" +
-                    "def write_json(data, filename='" + path + "\\launcher_profiles.json'): \n" +
+                    "def write_json(data, filename='" + path + "'): \n" +
                     "    with open(filename,'w') as f: \n" +
                     "        json.dump(data, f, indent=4) \n" +
                     "      \n" +
                     "      \n" +
-                    "with open('" + path + "\\launcher_profiles.json') as json_file: \n" +
+                    "with open('" + path + "') as json_file: \n" +
                     "    data = json.load(json_file) \n" +
                     "      \n" +
                     "    temp = data['profiles'] \n" +
