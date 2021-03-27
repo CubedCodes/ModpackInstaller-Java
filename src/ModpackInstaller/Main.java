@@ -288,6 +288,7 @@ public class Main extends Application {
             String dataFolder = System.getenv("APPDATA");
             String modpackFolder = dataFolder + "\\.minecraftModded2021";
             String minecraftDir = dataFolder + "\\.minecraft";
+            String jsonPath = minecraftDir + "\\launcher_profiles.json";
             Process rename = Runtime.getRuntime().exec("cmd /c rename mods .minecraftModded2021");
             printResults(rename);
             System.out.println("Rename Done");
