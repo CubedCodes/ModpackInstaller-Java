@@ -27,8 +27,8 @@ public class Main extends Application {
     // Universal Variable Declarations
     public static VBox pane = new VBox();
     public static Font font = Font.font("Verdana", FontWeight.BOLD, 27);
-    public static Text install = new Text("Installing...");
-    public static Text uninstallText = new Text("Uninstalling...");
+    public static Text install = new Text("");
+    public static Text uninstallText = new Text("");
     public static ProgressBar progressBar = new ProgressBar();
 
     // Start of JavaFX Application
@@ -48,8 +48,8 @@ public class Main extends Application {
 
         // Get Background Image
         BackgroundImage myBI = new BackgroundImage(
-                new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png", 900, 500, false, true), BackgroundRepeat.REPEAT,
-                BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT, BackgroundSize.DEFAULT);
+                new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png", 900, 500, false, true), BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, new BackgroundSize(100, 100, true, true, true, true));
 
         if (os.contains("Mac")) {
             myBI = new BackgroundImage(new Image("https://i.ibb.co/qsb2kGJ/shaderwheat.png", 1700, 1300, false, true),
@@ -74,6 +74,8 @@ public class Main extends Application {
         welcomeText.setFont(font);
         welcomeText.setFill(Color.LIGHTGREEN);
         uninstall.setFont(font);
+
+        progressBar.setVisible(false);
 
         // Add elements to window
         pane.getChildren().add(welcomeText);
@@ -246,6 +248,7 @@ public class Main extends Application {
     public static void Windows() {
         System.out.println("Initializing Windows Installation of Modpack");
         try {
+            progressBar.setVisible(true);
             StepProgress stepProgress = new StepProgress(0.1);
             Thread t = new Thread(stepProgress);
             t.start();
@@ -323,7 +326,12 @@ public class Main extends Application {
             t6.stop();
             t7.stop();
             progressBar.setProgress(1);
+            progressBar.setVisible(false);
+            progressBar.setMaxSize(0, 0);
+            progressBar.relocate(0, 0);
+            install.relocate(10, 10);
             install.setText("Modpack Installed!");
+
             pane.setMargin(install, new Insets(60, 10, 10, 250));
         }
 
