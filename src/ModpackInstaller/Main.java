@@ -1,11 +1,16 @@
 package ModpackInstaller;
 
+import com.sun.javafx.geom.BaseBounds;
+import com.sun.javafx.geom.transform.BaseTransform;
+import com.sun.javafx.scene.BoundsAccessor;
 import javafx.application.Application;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 
 import javafx.scene.control.ProgressBar;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -325,11 +330,13 @@ public class Main extends Application {
             t5.stop();
             t6.stop();
             t7.stop();
+
             progressBar.setProgress(1);
-            progressBar.setVisible(false);
-            progressBar.setMaxSize(0, 0);
-            progressBar.relocate(0, 0);
-            install.relocate(10, 10);
+            //progressBar.setVisible(false);
+            //progressBar.setMaxSize(0, 0);
+            //progressBar.setLayoutX(0);
+            //progressBar.relocate(0, 0);
+            //install.relocate(10, 10);
             install.setText("Modpack Installed!");
 
             pane.setMargin(install, new Insets(60, 10, 10, 250));
