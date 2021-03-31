@@ -1,0 +1,19 @@
+{
+  "modpacks": [
+    {
+      "name": "Season 4",
+      "image": null,
+      "downloadLink": "https://www.dropbox.com/s/jemgylk27d7h10s/mods.zip?dl=1"
+    },
+    {
+      "name": "Modpack Test 1",
+      "image": "imageLinkHere",
+      "downloadLink": "dropboxLinkHere"
+    },
+    {
+      "name": "Modpack Test 2",
+      "image": "imageLinkHere",
+      "downloadLink": "dropboxLinkHere"
+    }
+  ]
+}
