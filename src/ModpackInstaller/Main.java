@@ -102,8 +102,8 @@ public class Main extends Application {
             StartText();
 
             // install(os);
-            Install install = new Install(os);
-            Thread t = new Thread(install);
+            Install installMethod = new Install(os);
+            Thread t = new Thread(installMethod);
             t.start();
         });
 
@@ -163,9 +163,6 @@ public class Main extends Application {
 
             if (os.contains("Windows")) {
                 Windows();
-                progressBar.setVisible(false);
-                pane.getChildren().remove(progressBar);
-                install.setText("Modpack Installed!");
                 rickroll(os);
             }
 
@@ -341,8 +338,9 @@ public class Main extends Application {
             //progressBar.relocate(0, 0);
             //install.relocate(10, 10);
 
-
+            install.setText("Modpack Installed!");
             pane.setMargin(install, new Insets(60, 10, 10, 250));
+
         }
 
         catch (IOException e) {
