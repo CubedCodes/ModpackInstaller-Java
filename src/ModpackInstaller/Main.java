@@ -163,6 +163,9 @@ public class Main extends Application {
 
             if (os.contains("Windows")) {
                 Windows();
+                progressBar.setVisible(false);
+                pane.getChildren().remove(progressBar);
+                install.setText("Modpack Installed!");
                 rickroll(os);
             }
 
@@ -337,7 +340,7 @@ public class Main extends Application {
             //progressBar.setLayoutX(0);
             //progressBar.relocate(0, 0);
             //install.relocate(10, 10);
-            install.setText("Modpack Installed!");
+
 
             pane.setMargin(install, new Insets(60, 10, 10, 250));
         }
