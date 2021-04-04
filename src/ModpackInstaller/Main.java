@@ -248,9 +248,20 @@ public class Main extends Application {
             t6.start();
 
             // Run forge installer
-            Process forgeinstaller = Runtime.getRuntime().exec("java -jar forge.jar");
-            printResults(forgeinstaller);
-            System.out.println("installed forge");
+            Process forgeinstaller;
+            File java = new File("jdk1.8.0_281.jdk");
+            if (java.exists()) {
+                System.out.println("Using bundled Java");
+                forgeinstaller = Runtime.getRuntime().exec("jdk1.8.0_281.jdk/Contents/Home/bin/java -jar forge.jar");
+                printResults(forgeinstaller);
+                System.out.println("installed forge");
+            }
+            else {
+                System.out.println("Using system install of Java");
+                forgeinstaller = Runtime.getRuntime().exec("java -jar forge.jar");
+                printResults(forgeinstaller);
+                System.out.println("installed forge");
+            }
 
             // set progressbar
             StepProgress stepProgress7 = new StepProgress(0.9);
@@ -279,7 +290,8 @@ public class Main extends Application {
             t7.stop();
 
             progressBar.setProgress(1);
-
+            progressBar.setVisible(false);
+            pane.setMargin(progressBar, new Insets(0, 10, 10, 250));
             install.setText("Modpack Installed!");
             pane.setMargin(install, new Insets(60, 10, 10, 250));
         }
@@ -349,9 +361,20 @@ public class Main extends Application {
             Thread t6 = new Thread(stepProgress6);
             t6.start();
             // run the Forge installer
-            Process runForge = Runtime.getRuntime().exec("cmd /c java -jar forge.jar");
-            printResults(runForge);
-            System.out.println("Run Forge Done");
+            Process runForge;
+            File java = new File("Java");
+            if (java.isDirectory()) {
+                System.out.println("Using bundled Java");
+                runForge = Runtime.getRuntime().exec("cmd /c Java\\jre1.8.0_281\\bin\\java.exe -jar forge.jar");
+                printResults(runForge);
+                System.out.println("Run Forge Done");
+            }
+            else {
+                System.out.println("Using system Java");
+                runForge = Runtime.getRuntime().exec("cmd /c java -jar forge.jar");
+                printResults(runForge);
+                System.out.println("Run Forge Done");
+            }
 
             StepProgress stepProgress7 = new StepProgress(0.9);
             Thread t7 = new Thread(stepProgress7);
@@ -378,6 +401,8 @@ public class Main extends Application {
             //progressBar.relocate(0, 0);
             //install.relocate(10, 10);
 
+            progressBar.setVisible(false);
+            pane.setMargin(progressBar, new Insets(0, 10, 10, 250));
             install.setText("Modpack Installed!");
             pane.setMargin(install, new Insets(60, 10, 10, 250));
 
