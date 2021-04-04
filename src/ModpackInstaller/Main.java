@@ -177,6 +177,11 @@ public class Main extends Application {
         System.out.println("Initializing MacOS Installation of Modpack");
         try {
 
+            progressBar.setVisible(true);
+            StepProgress stepProgress = new StepProgress(0.1);
+            Thread t = new Thread(stepProgress);
+            t.start();
+
             // Get current username
             Process user = Runtime.getRuntime().exec("id -un");
             String id = returnResults(user);
@@ -191,6 +196,11 @@ public class Main extends Application {
             Process curl = Runtime.getRuntime().exec("curl https://modpackinstaller.page.link/mods -O -L -J");
             printResults(curl);
             System.out.println("downloaded zip archive");
+
+            // Set progressbar
+            StepProgress stepProgress2 = new StepProgress(0.4);
+            Thread t2 = new Thread(stepProgress2);
+            t2.start();
 
             // create directory for unzip
             Process mkmodsdir = Runtime.getRuntime().exec("mkdir minecraftModded2021");
@@ -211,10 +221,20 @@ public class Main extends Application {
             printResults(unzipMods);
             System.out.println("unzipped mods.zip");
 
+            // Set progressbar
+            StepProgress stepProgress3 = new StepProgress(0.5);
+            Thread t3 = new Thread(stepProgress3);
+            t3.start();
+
             // remove archive
             Process removemodszip = Runtime.getRuntime().exec("rm mods.zip");
             printResults(removemodszip);
             System.out.println("removed mods.zip");
+
+            // set progressbar
+            StepProgress stepProgress4 = new StepProgress(0.6);
+            Thread t4 = new Thread(stepProgress4);
+            t4.start();
 
             // Download Forge installer
             Process forgecurl = Runtime.getRuntime()
@@ -222,10 +242,20 @@ public class Main extends Application {
             printResults(forgecurl);
             System.out.println("downloaded forge installer");
 
+            // set progressbar
+            StepProgress stepProgress6 = new StepProgress(0.8);
+            Thread t6 = new Thread(stepProgress6);
+            t6.start();
+
             // Run forge installer
             Process forgeinstaller = Runtime.getRuntime().exec("java -jar forge.jar");
             printResults(forgeinstaller);
             System.out.println("installed forge");
+
+            // set progressbar
+            StepProgress stepProgress7 = new StepProgress(0.9);
+            Thread t7 = new Thread(stepProgress7);
+            t7.start();
 
             // remove Forge installer
             Process forgeremove = Runtime.getRuntime().exec("rm forge.jar");
@@ -241,7 +271,17 @@ public class Main extends Application {
             EditJsonMac(minecraftPath);
             System.out.println("injected profile into minecraft launcher");
 
+            t.stop();
+            t2.stop();
+            t3.stop();
+            t4.stop();
+            t6.stop();
+            t7.stop();
+
+            progressBar.setProgress(1);
+
             install.setText("Modpack Installed!");
+            pane.setMargin(install, new Insets(60, 10, 10, 250));
         }
 
         catch (IOException e) {
